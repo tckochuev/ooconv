@@ -14,15 +14,6 @@
 #define BUILDER_DECL
 #include <docbuilder.h>
 
-const std::string testDirectory = std::string(CMAKE_SOURCE_DIR) + "/test";
-const std::string inputPath = testDirectory + '/' +
-    "test2.odp";
-const std::string outputFileName =
-    "output";
-const std::string outputExtension =
-    "pdf";
-const std::string outputPath = testDirectory + '/' + outputFileName + '.' + outputExtension;
-
 std::optional<std::wstring> wideFromMultiByte(const std::string& multiByte)
 {
     std::wstring wide;
@@ -180,19 +171,6 @@ int main(int argc, char* argv[])
         return drErrorReturnCode;
     }
     builder.CloseFile();
-
-    //if (int error = builder.OpenFile(bfs::path(inputPath).generic_wstring().c_str(), L""))
-    //{
-    //    std::cerr << "Error opening file. Code:" << error << std::endl;
-    //    return drErrorReturnCode;
-    //}
-    //if (int error = builder.SaveFile(wideFromMultiByte(outputExtension)->c_str(), bfs::path(outputPath).generic_wstring().c_str()))
-    //{
-    //    std::cerr << "Error saving file. Code:" << error << std::endl;
-    //    return drErrorReturnCode;
-    //}
-    //builder.CloseFile();
-
 
     return 0;
 }
